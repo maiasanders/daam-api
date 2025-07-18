@@ -61,4 +61,14 @@ public class ItemController {
     public List<Item> create(@RequestBody ItemDto[] items, @PathVariable int id) {
         return service.addItemsToOrder(items, id);
     }
+
+    @DeleteMapping("/order/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteItemsFromOrder(@PathVariable int id) {
+        try {
+            service.deleteAllFromOrder(id);
+        } catch (NoRecordException e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
+        }
+    }
 }

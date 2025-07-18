@@ -78,6 +78,11 @@ public class ItemServiceImpl implements ItemService {
         return itemList;
     }
 
+    @Override
+    public void deleteAllFromOrder(int id) {
+        repo.deleteByOrder(id);
+    }
+
     private Item dtoToItem(ItemDto itemDto, int orderId) {
         Item item = new Item();
 

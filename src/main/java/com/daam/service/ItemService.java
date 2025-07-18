@@ -17,4 +17,6 @@ public interface ItemService {
     List<Item> getByOrderId(int id);
 
     List<Item> addItemsToOrder(ItemDto[] items, int id);
+
+    void deleteAllFromOrder(int id);
 }
