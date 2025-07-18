@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS menuitems CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users (
-    ID SERIAL PRIMARY KEY,
+    ID INT PRIMARY KEY,
     USERNAME VARCHAR(50) NOT NULL,
     PASSWORD VARCHAR(100) NOT NULL,
     FIRST VARCHAR(50),
@@ -15,12 +15,12 @@ CREATE TABLE users (
     EMAIL VARCHAR(100),
     IMAGE_URL VARCHAR(255),
     PAN VARCHAR(20),
-    EXPIRY_MONTH INT,
-    EXPIRY_YEAR INT,
+    EXPIRY_MONTH INT NOT NULL DEFAULT 0,
+    EXPIRY_YEAR INT NOT NULL DEFAULT 0,
     ROLES VARCHAR(50)
 );
 CREATE TABLE menuitems (
-    id SERIAL PRIMARY KEY,
+    id INT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     description TEXT,
     category VARCHAR(50),
@@ -30,7 +30,7 @@ CREATE TABLE menuitems (
 );
 
 CREATE TABLE orders (
-    id SERIAL PRIMARY KEY,
+    id INT PRIMARY KEY,
     userid INT REFERENCES users(ID),
     ordertime TIMESTAMP,
     pickuptime TIMESTAMP,
@@ -38,14 +38,14 @@ CREATE TABLE orders (
     location VARCHAR(50),
     tax NUMERIC(6,2),
     tip NUMERIC(6,2),
-    pan BIGINT,
-    expiry_month INT,
-    expiry_year INT,
+    pan VARCHAR(20),
+    expiry_month INT NOT NULL DEFAULT 0,
+    expiry_year INT NOT NULL DEFAULT 0,
     status VARCHAR(50)
 );
 
 CREATE TABLE items (
-    id SERIAL PRIMARY KEY,
+    id INT PRIMARY KEY,
     orderid INT REFERENCES orders(id),
     itemid INT REFERENCES menuitems(id),
     price NUMERIC(6,2),
@@ -54,7 +54,7 @@ CREATE TABLE items (
 );
 
 CREATE TABLE films (
-    id SERIAL PRIMARY KEY,
+    id INT PRIMARY KEY,
     title VARCHAR(200) NOT NULL,
     homepage VARCHAR(255),
     overview TEXT,

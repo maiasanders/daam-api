@@ -33,6 +33,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public Item update(int id, Item item) {
         if (repo.findById(id).isPresent()) {
+            item.setId(id);
             return repo.save(item);
         }
         throw new NoRecordException("Item not found");

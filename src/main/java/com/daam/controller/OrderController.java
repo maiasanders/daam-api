@@ -47,7 +47,7 @@ public class OrderController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteOrder(@RequestBody int id) {
+    public void deleteOrder(@PathVariable int id) {
         try {
             service.delete(id);
         } catch (NoRecordException e) {

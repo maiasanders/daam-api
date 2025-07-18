@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 public class MenuItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
@@ -27,7 +27,7 @@ public class MenuItem {
     private BigDecimal price;
 
     @Column(name = "imageurl")
-    private String imageUrl;
+    private String imageurl;
 
     private boolean available;
 
@@ -44,7 +44,7 @@ public class MenuItem {
                 && getDescription().equals(menuItem.getDescription())
                 && getCategory().equals(menuItem.getCategory())
                 && getPrice().equals(menuItem.getPrice())
-                && getImageUrl().equals(menuItem.getImageUrl());
+                && getImageurl().equals(menuItem.getImageurl());
     }
 
     @Override
@@ -53,7 +53,7 @@ public class MenuItem {
         result = 31 * result + getDescription().hashCode();
         result = 31 * result + getCategory().hashCode();
         result = 31 * result + getPrice().hashCode();
-        result = 31 * result + getImageUrl().hashCode();
+        result = 31 * result + getImageurl().hashCode();
         result = 31 * result + Boolean.hashCode(isAvailable());
         return result;
     }
