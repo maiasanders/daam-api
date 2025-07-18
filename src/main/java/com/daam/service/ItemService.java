@@ -1,6 +1,7 @@
 package com.daam.service;
 
 import com.daam.model.Item;
+import com.daam.model.dto.ItemDto;
 
 import java.util.List;
 
@@ -15,5 +16,5 @@ public interface ItemService {
 
     List<Item> getByOrderId(int id);
 
-    List<Item> addItemsToOrder(Item[] items, int id);
+    List<Item> addItemsToOrder(ItemDto[] items, int id);
 }

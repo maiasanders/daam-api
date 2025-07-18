@@ -1,11 +1,11 @@
 package com.daam.controller;
 
 import com.daam.model.Item;
+import com.daam.model.dto.ItemDto;
 import com.daam.service.ItemService;
 import com.daam.service.exception.NoRecordException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -58,7 +58,7 @@ public class ItemController {
 
     @PostMapping("/order/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public List<Item> create(@RequestBody Item[] items, @PathVariable int id) {
+    public List<Item> create(@RequestBody ItemDto[] items, @PathVariable int id) {
         return service.addItemsToOrder(items, id);
     }
 }

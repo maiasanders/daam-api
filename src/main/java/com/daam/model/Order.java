@@ -3,18 +3,10 @@ package com.daam.model;
 import jakarta.persistence.*;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
-import org.springframework.data.relational.core.mapping.*;
 import lombok.*;
-//import org.springframework.data.relational.core.mapping.Column;
-//import org.springframework.data.relational.core.mapping.Table;
 
 import java.math.BigDecimal;
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.OffsetTime;
-import java.time.ZonedDateTime;
 
 @NoArgsConstructor
 @Getter
@@ -46,7 +38,6 @@ public class Order {
     @JoinColumn(name = "userid")
     private User user;
 
-//    TODO can I keep these like this?
     @Column(name = "ordertime")
     private Timestamp orderTime;
 
