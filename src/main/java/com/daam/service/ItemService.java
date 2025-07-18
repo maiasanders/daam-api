@@ -10,7 +10,7 @@ public interface ItemService {
 
     Item getById(int id);
 
-    Item update(int id, Item item);
+    Item update(int id, ItemDto dto);
 
     void deleteById(int id);
 

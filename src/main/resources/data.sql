@@ -57,7 +57,7 @@ CREATE TABLE films (
     id INT PRIMARY KEY,
     title VARCHAR(200) NOT NULL,
     homepage VARCHAR(255),
-    overview TEXT,
+    overview VARCHAR(1000),
     posterpath VARCHAR(255),
     runtime INT,
     tagline VARCHAR(255),

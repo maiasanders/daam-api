@@ -41,12 +41,10 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item update(int id, Item item) {
+    public Item update(int id, ItemDto dto) {
         if (repo.findById(id).isPresent()) {
             Item oldItem = repo.findById(id).get();
-            item.setOrder(oldItem.getOrder());
-            item.setItem(oldItem.getItem());
-            item.setId(id);
+            Item item = dtoToItem(dto, oldItem.getOrder().getId());
             return repo.save(item);
         }
         throw new NoRecordException("Item not found");
@@ -92,7 +90,7 @@ public class ItemServiceImpl implements ItemService {
         item.setOrder(order);
 
         // Set menuitem reference by id
-        MenuItem menuItem = menuItemRepo.findById(itemDto.getMenuItemId()).orElse(null);
+        MenuItem menuItem = menuItemRepo.findById(itemDto.getItemid()).orElse(null);
         if (menuItem == null) {
             throw new NoRecordException("MenuItem not found");
         }

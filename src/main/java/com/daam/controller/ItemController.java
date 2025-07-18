@@ -33,7 +33,7 @@ public class ItemController {
     }
 
     @PutMapping("/{id}")
-    public Item update(@PathVariable int id, @RequestBody Item item) {
+    public Item update(@PathVariable int id, @RequestBody ItemDto item) {
         try {
             return service.update(id, item);
         } catch (NoRecordException e) {

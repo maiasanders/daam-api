@@ -22,7 +22,7 @@ CREATE TABLE users (
 CREATE TABLE menuitems (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    description TEXT,
+    description VARCHAR(1000),
     category VARCHAR(50),
     price NUMERIC(6,2),
     imageurl VARCHAR(255),

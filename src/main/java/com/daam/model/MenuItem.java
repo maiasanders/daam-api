@@ -20,6 +20,7 @@ public class MenuItem {
 
     private String name;
 
+    @Column(length = 1000)
     private String description;
 
     private String category;

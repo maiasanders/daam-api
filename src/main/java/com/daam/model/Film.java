@@ -20,6 +20,7 @@ public class Film {
 
     private String homepage;
 
+    @Column(length = 2000)
     private String overview;
 
     @Column(name = "posterpath")
